@@ -25,3 +25,20 @@ def j_depuis_lune(date_DD_MM_YYYY):
         if liste_delta[i]<=liste_delta[i-1]:
             delta_final=liste_delta[i]
     return delta_final
+
+
+#6. Ecrire une fonction qui prend en argument une liste de dates et retourne une liste de valeurs correspondant aux nombres de ces dates par distance avec la précédente pleine lune.
+
+#définition de ma foction qui attend une liste de dates de format DD/MM/YYYY
+def classement_j_depuis_lune(liste_dates_DD_MM_YYYY):
+
+    #définition d'une liste contenant le nombre de pleines lunes par delta de temps, première donnée delta de 0 jour et dernière donnée delta de 31 jours
+    liste_classement=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    for date in liste_dates_DD_MM_YYYY:
+        delta=j_depuis_lune(date)
+        #en fonction du delta entre les deux dates testées le conteur correspondant dans 'liste_classement' est incrémenté
+        liste_classement[delta]+=1
+    return liste_classement
+
+#liste_de_teste=[[30, 1, 2000], [19, 2, 2000], [22, 1, 2000], [1, 3, 2000], [17, 4, 2000], [11, 12, 2008]]
+#9, 0, 1, 11,, 28, 28
